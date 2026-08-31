@@ -1,0 +1,1503 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lezione interattiva di italiano A2 sul passato prossimo con avere ed essere.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b83a28'/%3E%3Cpath d='M19 15h26v7H35v27h-7V22h-9z' fill='%23fffaf0'/%3E%3C/svg%3E">
+  <title>Italiano quotidiano · Lezione 1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f2ebdd;
+      --paper-deep: #e6dcc9;
+      --cream: #fffaf0;
+      --ink: #20231e;
+      --muted: #68675f;
+      --red: #b83a28;
+      --red-dark: #7f271d;
+      --olive: #5b694e;
+      --olive-soft: #dfe5d6;
+      --line: #c8beab;
+      --white: #fffdf8;
+      --shadow: 0 24px 70px rgba(58, 45, 28, 0.12);
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Iowan Old Style, Baskerville, Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.72), transparent 24rem),
+        linear-gradient(135deg, var(--paper), #ede3d1);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.62;
+      accent-color: var(--red);
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a,
+    input,
+    textarea {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: 0.75rem;
+      inset-inline-start: 0.75rem;
+      z-index: 50;
+      transform: translateY(-160%);
+      border-radius: 0.4rem;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.7rem 1rem;
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .topbar {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 20;
+      display: flex;
+      min-height: 4.25rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-block-end: 1px solid color-mix(in srgb, var(--line), transparent 25%);
+      background: color-mix(in srgb, var(--paper), transparent 9%);
+      padding: 0.65rem clamp(1rem, 3vw, 2.5rem);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand strong {
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 750;
+      padding: 0.55rem 1rem;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button.primary {
+      border-color: var(--red);
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .button.primary:hover {
+      border-color: var(--red-dark);
+      background: var(--red-dark);
+    }
+
+    .button.quiet {
+      border-color: transparent;
+      color: var(--muted);
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(12rem, 17rem) minmax(0, 1fr);
+      gap: clamp(1.5rem, 5vw, 5.5rem);
+      max-width: 92rem;
+      margin-inline: auto;
+      padding: clamp(1.25rem, 3vw, 2.75rem);
+    }
+
+    .rail {
+      position: sticky;
+      inset-block-start: 6.25rem;
+      align-self: start;
+      max-height: calc(100vh - 7.5rem);
+      overflow: auto;
+      padding-block-end: 1rem;
+    }
+
+    .rail-label {
+      margin: 0 0 0.65rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .rail progress {
+      display: block;
+      width: 100%;
+      height: 0.42rem;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: var(--paper-deep);
+      color: var(--red);
+    }
+
+    progress::-webkit-progress-bar {
+      background: var(--paper-deep);
+    }
+
+    progress::-webkit-progress-value {
+      background: var(--red);
+      transition: width 300ms ease;
+    }
+
+    progress::-moz-progress-bar {
+      background: var(--red);
+    }
+
+    .rail nav {
+      margin-block-start: 1.35rem;
+    }
+
+    .rail ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rail li {
+      position: relative;
+      border-inline-start: 1px solid var(--line);
+      padding: 0.48rem 0 0.48rem 1rem;
+    }
+
+    .rail li::before {
+      position: absolute;
+      inset-block-start: 1rem;
+      inset-inline-start: -0.27rem;
+      width: 0.48rem;
+      height: 0.48rem;
+      border-radius: 50%;
+      background: var(--line);
+      content: "";
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .rail li.active::before {
+      background: var(--red);
+      transform: scale(1.4);
+    }
+
+    .rail a {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .rail li.active a,
+    .rail a:hover {
+      color: var(--ink);
+    }
+
+    .rail-note {
+      margin-block-start: 1.5rem;
+      border-block-start: 1px solid var(--line);
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 0.96rem;
+      padding-block-start: 1rem;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: min(43rem, calc(100svh - 8rem));
+      overflow: hidden;
+      grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
+      column-gap: clamp(1.5rem, 3vw, 3.5rem);
+      align-items: center;
+      border-block-end: 1px solid var(--line);
+      margin-block-end: clamp(4rem, 9vw, 8rem);
+      padding: clamp(1rem, 4vw, 3.5rem) 0;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      max-width: 44rem;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 0 0 1.4rem;
+      color: var(--red-dark);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 2.2rem;
+      height: 2px;
+      background: var(--red);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.03;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin: 0;
+      font-size: clamp(3.7rem, 8.3vw, 8rem);
+      letter-spacing: -0.065em;
+    }
+
+    h1 em {
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .hero-intro {
+      max-width: 30ch;
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(1.12rem, 2vw, 1.42rem);
+    }
+
+    .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1.2rem;
+      margin-block-start: 2rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .lesson-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .lesson-meta span::before {
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      background: var(--olive);
+      content: "";
+    }
+
+    .window {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 27rem);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 0.65rem solid var(--cream);
+      border-radius: 45% 45% 1.2rem 1.2rem;
+      background: #b8d1cf;
+      box-shadow: var(--shadow);
+      transform: rotate(1.6deg);
+    }
+
+    .window svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .train {
+      animation: train-drift 6s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    @keyframes train-drift {
+      from { translate: -8px 0; }
+      to { translate: 9px 0; }
+    }
+
+    .section {
+      max-width: 54rem;
+      margin-block: 0 clamp(5rem, 10vw, 9rem);
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-number {
+      margin: 0 0 0.7rem;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 1.4rem;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      letter-spacing: -0.045em;
+    }
+
+    h3 {
+      margin: 2.2rem 0 0.8rem;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.025em;
+    }
+
+    p,
+    li {
+      max-width: 75ch;
+    }
+
+    .lede {
+      max-width: 50rem;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+
+    .story {
+      border-inline-start: 0.28rem solid var(--red);
+      font-family: var(--serif);
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      line-height: 1.75;
+      padding-inline-start: clamp(1.1rem, 3vw, 2rem);
+    }
+
+    .story p:first-child::first-letter {
+      float: inline-start;
+      margin: 0.08em 0.13em 0 0;
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: 4.9em;
+      line-height: 0.72;
+    }
+
+    .dialogue {
+      color: var(--red-dark);
+      font-style: italic;
+    }
+
+    .formula {
+      display: inline-block;
+      margin: 0.7rem 0 1.2rem;
+      border-block: 1px solid var(--line);
+      color: var(--red-dark);
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      padding: 0.8rem 0;
+    }
+
+    .example-list {
+      padding-inline-start: 1.2rem;
+    }
+
+    .example-list li {
+      margin-block: 0.45rem;
+    }
+
+    .note {
+      margin-block: 1.5rem;
+      border-radius: 0.6rem;
+      background: var(--olive-soft);
+      padding: 1.1rem 1.25rem;
+    }
+
+    .english {
+      margin-block: 1.5rem;
+      border: 1px dashed var(--olive);
+      border-radius: 0.6rem;
+      background: color-mix(in srgb, var(--olive-soft), transparent 32%);
+      color: #34412d;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .english::before {
+      display: block;
+      margin-block-end: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      content: "English support";
+    }
+
+    .table-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+      border-block: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    caption {
+      padding-block-end: 0.65rem;
+      color: var(--muted);
+      text-align: start;
+    }
+
+    th,
+    td {
+      border-block-end: 1px solid var(--line);
+      padding: 0.8rem 1rem 0.8rem 0;
+      text-align: start;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    legend {
+      margin-block-end: 0.85rem;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 1.3rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .question {
+      display: grid;
+      gap: 0.5rem;
+      border-block-end: 1px solid var(--line);
+      padding-block-end: 1.3rem;
+    }
+
+    .question label,
+    .question .question-label {
+      display: block;
+      max-width: 75ch;
+      font-weight: 650;
+    }
+
+    .essential {
+      display: inline-block;
+      margin-inline-start: 0.35rem;
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      color: var(--red-dark);
+      font-size: 0.64rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      padding: 0.08rem 0.38rem;
+      text-transform: uppercase;
+      vertical-align: 0.1em;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      min-height: 3.1rem;
+      border: 1px solid #958b7a;
+      border-radius: 0.45rem;
+      background: color-mix(in srgb, var(--cream), transparent 10%);
+      color: var(--ink);
+      font-size: 1rem;
+      padding: 0.75rem 0.85rem;
+      resize: vertical;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    textarea {
+      min-height: 5.5rem;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: var(--red);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(184, 58, 40, 0.1);
+    }
+
+    .choice-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .choice {
+      display: flex;
+      min-height: 3rem;
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 0.45rem;
+      cursor: pointer;
+      padding: 0.45rem 0.65rem;
+    }
+
+    .choice:hover {
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .choice input {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex: 0 0 auto;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .field-result {
+      min-height: 1.35rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .question.correct .field-result {
+      color: #315226;
+    }
+
+    .question.incorrect .field-result {
+      color: var(--red-dark);
+    }
+
+    .question.correct input,
+    .question.correct textarea {
+      border-color: var(--olive);
+    }
+
+    .question.incorrect input,
+    .question.incorrect textarea {
+      border-color: var(--red);
+    }
+
+    .exam-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: end;
+      margin-block-end: 2rem;
+      border-block: 1px solid var(--line);
+      padding-block: 1.25rem;
+    }
+
+    .score {
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-block-start: 1.5rem;
+    }
+
+    .status-message {
+      min-height: 1.5rem;
+      margin-block-start: 1rem;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .register {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-block: 1px solid var(--line);
+    }
+
+    .register div {
+      min-height: 7rem;
+      border-block-end: 1px solid var(--line);
+      padding: 1.1rem 1.25rem 1.1rem 0;
+    }
+
+    .register div:nth-child(odd) {
+      border-inline-end: 1px solid var(--line);
+    }
+
+    .register div:nth-child(even) {
+      padding-inline-start: 1.25rem;
+    }
+
+    .register dt {
+      margin-block-end: 0.3rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .register dd {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+    }
+
+    dialog {
+      width: min(46rem, calc(100% - 2rem));
+      max-height: calc(100svh - 2rem);
+      overflow: auto;
+      border: 0;
+      border-radius: 0.85rem;
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 0 28px 100px rgba(25, 18, 10, 0.32);
+      padding: clamp(1.2rem, 4vw, 2.2rem);
+    }
+
+    dialog::backdrop {
+      background: rgba(30, 27, 22, 0.58);
+      backdrop-filter: blur(4px);
+    }
+
+    dialog h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    .dialog-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-block-start: 1rem;
+    }
+
+    footer {
+      max-width: 92rem;
+      margin-inline: auto;
+      border-block-start: 1px solid var(--line);
+      color: var(--muted);
+      font-family: var(--serif);
+      padding: 2rem clamp(1.25rem, 3vw, 2.75rem) 3.5rem;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        display: block;
+      }
+
+      .rail {
+        position: static;
+        max-height: none;
+        margin-block-end: 2rem;
+      }
+
+      .rail nav,
+      .rail-note {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .window {
+        justify-self: center;
+        width: min(78vw, 24rem);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar {
+        align-items: center;
+      }
+
+      .brand span,
+      .button .wide-label {
+        display: none;
+      }
+
+      .shell {
+        padding-inline: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(3.4rem, 18vw, 5.6rem);
+      }
+
+      .exam-intro,
+      .register {
+        grid-template-columns: 1fr;
+      }
+
+      .register div:nth-child(odd) {
+        border-inline-end: 0;
+      }
+
+      .register div:nth-child(even) {
+        padding-inline-start: 0;
+      }
+
+      .score {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .section {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .rail,
+      .button,
+      dialog {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .shell {
+        display: block;
+        max-width: 50rem;
+        padding: 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .window {
+        width: 16rem;
+      }
+
+      .section {
+        break-inside: avoid;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Vai alla lezione</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Italiano quotidiano, torna all'inizio">
+      <strong>Italiano quotidiano</strong>
+      <span>A2 → B1</span>
+    </a>
+    <div class="top-actions">
+      <button class="button" id="english-toggle" type="button" aria-pressed="false">
+        EN <span class="wide-label">English help</span>
+      </button>
+      <button class="button primary" id="reply-top" type="button">
+        <span class="wide-label">Prepara la </span>risposta
+      </button>
+    </div>
+  </header>
+
+  <div class="shell" id="top">
+    <aside class="rail" aria-label="Avanzamento della lezione">
+      <p class="rail-label">Avanzamento</p>
+      <progress id="lesson-progress" max="8" value="1">1 di 8</progress>
+      <nav aria-label="Sezioni della lezione">
+        <ol role="list">
+          <li class="active"><a href="#ripasso">Ripasso</a></li>
+          <li><a href="#storia">Storia</a></li>
+          <li><a href="#comprensione">Comprensione</a></li>
+          <li><a href="#regola">Come funziona</a></li>
+          <li><a href="#pratica">Pratica</a></li>
+          <li><a href="#esame">Esame</a></li>
+          <li><a href="#risposta">Risposta</a></li>
+          <li><a href="#registro">Registro</a></li>
+        </ol>
+      </nav>
+      <p class="rail-note">Le risposte restano in questo browser. Puoi chiudere la pagina e tornare più tardi.</p>
+    </aside>
+
+    <main id="content" tabindex="-1">
+      <section class="hero" aria-labelledby="lesson-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Lezione 1 · 23 agosto 2026</p>
+          <h1 id="lesson-title">Il treno <em>sbagliato</em></h1>
+          <p class="hero-intro">Raccontiamo un piccolo disastro di viaggio e rimettiamo in ordine il passato prossimo.</p>
+          <div class="lesson-meta" aria-label="Dettagli della lezione">
+            <span>Ripasso A2</span>
+            <span>25 minuti</span>
+            <span>Padronanza 90%</span>
+          </div>
+          <div class="english" data-english hidden>
+            Today you will review the Italian present perfect, especially how to choose between <em>avere</em> and <em>essere</em>. Your answers are saved automatically on this device.
+          </div>
+        </div>
+
+        <figure class="window" aria-label="Un treno rosso attraversa le colline italiane">
+          <svg viewBox="0 0 600 750" role="img" aria-labelledby="train-title train-desc">
+            <title id="train-title">Il treno sbagliato</title>
+            <desc id="train-desc">Un treno rosso attraversa colline verdi sotto un cielo chiaro.</desc>
+            <rect width="600" height="750" fill="#b9d3d0"/>
+            <circle cx="438" cy="155" r="64" fill="#f7d08a"/>
+            <path d="M0 365 C110 280 220 300 310 370 C405 445 505 350 600 315 L600 750 L0 750 Z" fill="#8da079"/>
+            <path d="M0 435 C130 350 230 410 330 470 C430 530 520 420 600 405 L600 750 L0 750 Z" fill="#5e7153"/>
+            <path d="M0 580 C150 535 280 550 600 520" fill="none" stroke="#d5c8ae" stroke-width="32"/>
+            <path d="M0 580 C150 535 280 550 600 520" fill="none" stroke="#4b4b43" stroke-width="8" stroke-dasharray="20 13"/>
+            <g class="train" transform="translate(188 454)">
+              <path d="M0 78 L20 17 Q24 0 43 0 H234 Q254 0 262 18 L285 78 Z" fill="#b83a28"/>
+              <rect x="49" y="16" width="58" height="37" rx="5" fill="#d8ece7"/>
+              <rect x="121" y="16" width="58" height="37" rx="5" fill="#d8ece7"/>
+              <rect x="193" y="16" width="48" height="37" rx="5" fill="#d8ece7"/>
+              <path d="M15 64 H270" stroke="#f5e8d3" stroke-width="5"/>
+              <circle cx="61" cy="79" r="18" fill="#282b27"/>
+              <circle cx="224" cy="79" r="18" fill="#282b27"/>
+              <circle cx="61" cy="79" r="7" fill="#c8beab"/>
+              <circle cx="224" cy="79" r="7" fill="#c8beab"/>
+            </g>
+            <path d="M78 150 C140 105 205 110 250 148" fill="none" stroke="#fffaf0" stroke-width="15" stroke-linecap="round" opacity=".7"/>
+            <path d="M298 95 C345 58 392 68 423 98" fill="none" stroke="#fffaf0" stroke-width="13" stroke-linecap="round" opacity=".55"/>
+          </svg>
+        </figure>
+      </section>
+
+      <form id="lesson-form" action="#" method="post" novalidate>
+        <section class="section" id="ripasso" data-step="1">
+          <p class="section-number">01 · Riscaldamento</p>
+          <h2>Ripasso a memoria</h2>
+          <p class="lede">Oggi il ripasso è anche una piccola diagnosi. Completa senza cercare le risposte.</p>
+          <fieldset>
+            <legend class="visually-hidden">Domande di ripasso</legend>
+            <ol class="question-list">
+              <li class="question">
+                <label for="review-1">1. Ogni mattina io ___ il caffè. <em>bere</em></label>
+                <input id="review-1" name="review_1" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="review-2">2. Ieri noi ___ al cinema. <em>andare</em></label>
+                <input id="review-2" name="review_2" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="review-3">3. Vivo ___ Italia, ma lavoro ___ Stati Uniti.</label>
+                <input id="review-3" name="review_3" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="review-4">4. Il telefono è ___ tavolo.</label>
+                <input id="review-4" name="review_4" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="review-5">5. Conosci Marta? Sì, ___ conosco bene.</label>
+                <input id="review-5" name="review_5" type="text" autocomplete="off">
+              </li>
+            </ol>
+          </fieldset>
+        </section>
+
+        <section class="section" id="storia" data-step="2">
+          <p class="section-number">02 · Lettura</p>
+          <h2>Il treno sbagliato</h2>
+          <article class="story">
+            <p>Sabato mattina Chiara è uscita di casa molto presto. Ha preso un caffè al bar della stazione e ha comprato un biglietto per Verona.</p>
+            <p>Quando il treno è arrivato, Chiara è salita in fretta. Ha trovato un posto vicino al finestrino, ha messo le cuffie e ha ascoltato un podcast. Dopo quaranta minuti, il controllore ha guardato il suo biglietto e ha detto:</p>
+            <p class="dialogue">"Signorina, questo treno non va a Verona. Va a Vicenza."</p>
+            <p>Chiara è diventata rossa. <span class="dialogue">"Oh no! Ho preso il treno sbagliato!"</span></p>
+            <p>A Vicenza è scesa dal treno e ha chiesto aiuto a un ragazzo di nome Paolo. Lui le ha mostrato il binario giusto. Mentre aspettavano, hanno parlato e hanno mangiato due panini.</p>
+            <p>Alla fine Chiara è arrivata a Verona con due ore di ritardo. Però non era triste. Ha visitato la città e la sera ha ricevuto un messaggio da Paolo:</p>
+            <p class="dialogue">"Sei arrivata bene, viaggiatrice distratta?"</p>
+            <p>Chiara ha sorriso.</p>
+          </article>
+          <div class="english" data-english hidden>
+            Chiara boards the wrong train, meets Paolo in Vicenza, and reaches Verona two hours late. Notice how the story alternates between <em>ha</em> and <em>è</em> before each past participle.
+          </div>
+        </section>
+
+        <section class="section" id="comprensione" data-step="3">
+          <p class="section-number">03 · Comprensione</p>
+          <h2>Che cosa è successo?</h2>
+          <p class="lede">Rispondi in italiano. Bastano frasi brevi e chiare.</p>
+          <fieldset>
+            <legend class="visually-hidden">Domande di comprensione</legend>
+            <ol class="question-list">
+              <li class="question">
+                <label for="comp-1">1. Dove voleva andare Chiara?</label>
+                <input id="comp-1" name="comp_1" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="comp-2">2. Perché ha preso il treno sbagliato?</label>
+                <textarea id="comp-2" name="comp_2"></textarea>
+              </li>
+              <li class="question">
+                <label for="comp-3">3. Chi l'ha aiutata a Vicenza?</label>
+                <input id="comp-3" name="comp_3" type="text" autocomplete="off">
+              </li>
+              <li class="question">
+                <label for="comp-4">4. Che cosa hanno fatto Chiara e Paolo mentre aspettavano?</label>
+                <textarea id="comp-4" name="comp_4"></textarea>
+              </li>
+              <li class="question">
+                <label for="comp-5">5. Chi ha scritto il messaggio finale?</label>
+                <input id="comp-5" name="comp_5" type="text" autocomplete="off">
+              </li>
+            </ol>
+          </fieldset>
+        </section>
+
+        <section class="section" id="regola" data-step="4">
+          <p class="section-number">04 · Grammatica</p>
+          <h2>Come funziona</h2>
+          <p>Il <em>passato prossimo</em> racconta spesso un'azione conclusa.</p>
+          <p class="formula">ausiliare al presente + participio passato</p>
+
+          <h3>Con <em>avere</em></h3>
+          <p>Molti verbi usano <em>avere</em>. Il participio normalmente non cambia.</p>
+          <ul class="example-list">
+            <li>Ho comprato un biglietto.</li>
+            <li>Chiara ha preso un caffè.</li>
+            <li>Abbiamo mangiato due panini.</li>
+            <li>Hai visto Paolo?</li>
+          </ul>
+
+          <h3>Con <em>essere</em></h3>
+          <p>Molti verbi di cambiamento, arrivo, partenza o permanenza usano <em>essere</em>. Anche tutti i verbi riflessivi usano <em>essere</em>.</p>
+          <ul class="example-list">
+            <li>Paolo è arrivat<strong>o</strong>.</li>
+            <li>Chiara è arrivat<strong>a</strong>.</li>
+            <li>Paolo e Marco sono arrivat<strong>i</strong>.</li>
+            <li>Chiara e Marta sono arrivat<strong>e</strong>.</li>
+          </ul>
+          <p class="note">Attenzione. Non basta pensare al movimento. Diciamo <em>ho viaggiato</em>, non <em>sono viaggiato</em>. Impara ogni nuovo verbo insieme al suo ausiliare.</p>
+
+          <div class="english" data-english hidden>
+            The <em>passato prossimo</em> combines a present-tense auxiliary with a past participle. Most verbs use <em>avere</em>. Verbs that take <em>essere</em> require the participle to agree with the subject's gender and number.
+          </div>
+
+          <h3>Participi utili</h3>
+          <div class="table-wrap">
+            <table>
+              <caption>Infinito e participio passato</caption>
+              <thead>
+                <tr><th scope="col">Infinito</th><th scope="col">Participio</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>parlare</td><td>parlato</td></tr>
+                <tr><td>ricevere</td><td>ricevuto</td></tr>
+                <tr><td>partire</td><td>partito</td></tr>
+                <tr><td>fare</td><td>fatto</td></tr>
+                <tr><td>prendere</td><td>preso</td></tr>
+                <tr><td>vedere</td><td>visto</td></tr>
+                <tr><td>scrivere</td><td>scritto</td></tr>
+                <tr><td>bere</td><td>bevuto</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="pratica" data-step="5">
+          <p class="section-number">05 · Pratica guidata</p>
+          <h2>Mettiamolo in moto</h2>
+          <p class="lede">Completa con il passato prossimo corretto. Le risposte saranno incluse nel messaggio per l'insegnante.</p>
+          <fieldset>
+            <legend class="visually-hidden">Esercizi di pratica</legend>
+            <ol class="question-list">
+              <li class="question"><label for="practice-1">1. Ieri Luca ___ una pizza. <em>mangiare</em></label><input id="practice-1" name="practice_1" type="text" autocomplete="off"></li>
+              <li class="question"><label for="practice-2">2. Sara ___ a Roma alle nove. <em>arrivare</em></label><input id="practice-2" name="practice_2" type="text" autocomplete="off"></li>
+              <li class="question"><label for="practice-3">3. Noi ___ un film italiano. <em>vedere</em></label><input id="practice-3" name="practice_3" type="text" autocomplete="off"></li>
+              <li class="question"><label for="practice-4">4. Marta e Giulia ___ presto. <em>partire</em></label><input id="practice-4" name="practice_4" type="text" autocomplete="off"></li>
+              <li class="question"><label for="practice-5">5. Io ___ una lunga email. <em>scrivere</em></label><input id="practice-5" name="practice_5" type="text" autocomplete="off"></li>
+              <li class="question"><label for="practice-6">6. Marco ___ alle sette. <em>svegliarsi</em></label><input id="practice-6" name="practice_6" type="text" autocomplete="off"></li>
+            </ol>
+          </fieldset>
+        </section>
+
+        <section class="section" id="esame" data-step="6">
+          <p class="section-number">06 · Esame di padronanza</p>
+          <h2>Adesso tocca a te</h2>
+          <div class="exam-intro">
+            <div>
+              <p><strong>Obiettivo:</strong> almeno 9 punti su 10 e tutte le domande essenziali corrette.</p>
+              <p class="hint">Il controllo nella pagina valuta le prime nove risposte. La frase libera riceverà il voto finale dall'insegnante.</p>
+            </div>
+            <output class="score" id="score-output" aria-live="polite">—/10</output>
+          </div>
+
+          <fieldset>
+            <legend class="visually-hidden">Domande dell'esame</legend>
+            <ol class="question-list">
+              <li class="question" data-exam="1">
+                <label for="exam-1">1. Completa: Ieri Maria ___ a casa tardi. <em>tornare</em> <span class="essential">Essenziale</span></label>
+                <input id="exam-1" name="exam_1" type="text" autocomplete="off" required aria-describedby="exam-result-1">
+                <span class="field-result" id="exam-result-1"></span>
+              </li>
+              <li class="question" data-exam="2">
+                <label for="exam-2">2. Completa: Paolo e Luca ___ il treno delle otto. <em>prendere</em> <span class="essential">Essenziale</span></label>
+                <input id="exam-2" name="exam_2" type="text" autocomplete="off" required aria-describedby="exam-result-2">
+                <span class="field-result" id="exam-result-2"></span>
+              </li>
+              <li class="question" data-exam="3">
+                <label for="exam-3">3. Correggi: <em>Giulia ha arrivato alle dieci.</em></label>
+                <input id="exam-3" name="exam_3" type="text" autocomplete="off" required aria-describedby="exam-result-3">
+                <span class="field-result" id="exam-result-3"></span>
+              </li>
+              <li class="question" data-exam="4">
+                <label for="exam-4">4. Completa: Noi ___ una lettera a Francesca. <em>scrivere</em></label>
+                <input id="exam-4" name="exam_4" type="text" autocomplete="off" required aria-describedby="exam-result-4">
+                <span class="field-result" id="exam-result-4"></span>
+              </li>
+              <li class="question" data-exam="5">
+                <label for="exam-5">5. Completa: Anna e Sofia ___ molto presto. <em>svegliarsi</em> <span class="essential">Essenziale</span></label>
+                <input id="exam-5" name="exam_5" type="text" autocomplete="off" required aria-describedby="exam-result-5">
+                <span class="field-result" id="exam-result-5"></span>
+              </li>
+              <li class="question" data-exam="6">
+                <p class="question-label" id="exam-6-label">6. Scegli la frase corretta.</p>
+                <div class="choice-group" role="radiogroup" aria-labelledby="exam-6-label" aria-describedby="exam-result-6">
+                  <label class="choice" for="exam-6-a"><input id="exam-6-a" name="exam_6" type="radio" value="a" required> a. Marco è mangiato una pizza.</label>
+                  <label class="choice" for="exam-6-b"><input id="exam-6-b" name="exam_6" type="radio" value="b"> b. Marco ha mangiato una pizza.</label>
+                  <label class="choice" for="exam-6-c"><input id="exam-6-c" name="exam_6" type="radio" value="c"> c. Marco ha mangiata una pizza.</label>
+                </div>
+                <span class="field-result" id="exam-result-6"></span>
+              </li>
+              <li class="question" data-exam="7">
+                <label for="exam-7">7. Traduci: "Yesterday I saw my friends."</label>
+                <input id="exam-7" name="exam_7" type="text" autocomplete="off" required aria-describedby="exam-result-7">
+                <span class="field-result" id="exam-result-7"></span>
+              </li>
+              <li class="question" data-exam="8">
+                <label for="exam-8">8. Metti al passato prossimo: <em>Lucia parte per Milano.</em> <span class="essential">Essenziale</span></label>
+                <input id="exam-8" name="exam_8" type="text" autocomplete="off" required aria-describedby="exam-result-8">
+                <span class="field-result" id="exam-result-8"></span>
+              </li>
+              <li class="question" data-exam="9">
+                <label for="exam-9">9. Completa: Abito ___ Italia e domani vado ___ Roma.</label>
+                <input id="exam-9" name="exam_9" type="text" autocomplete="off" required aria-describedby="exam-result-9">
+                <span class="hint">Scrivi le due preposizioni separate da una virgola.</span>
+                <span class="field-result" id="exam-result-9"></span>
+              </li>
+              <li class="question" data-exam="10">
+                <label for="exam-10">10. Scrivi due frasi su ieri. Usa un verbo con <em>avere</em> e un verbo con <em>essere</em>.</label>
+                <textarea id="exam-10" name="exam_10" required aria-describedby="exam-result-10"></textarea>
+                <span class="field-result" id="exam-result-10">L'insegnante controllerà questa risposta.</span>
+              </li>
+            </ol>
+          </fieldset>
+
+          <div class="action-row">
+            <button class="button primary" id="check-exam" type="button">Controlla le prime 9</button>
+            <button class="button" id="reply-exam" type="button">Prepara la risposta</button>
+          </div>
+          <p class="status-message" id="exam-status" aria-live="polite"></p>
+        </section>
+
+        <section class="section" id="risposta" data-step="7">
+          <p class="section-number">07 · Consegna</p>
+          <h2>Porta le risposte all'insegnante</h2>
+          <p class="lede">La pagina fa un primo controllo. Il voto finale arriva nella conversazione, dove terrò conto anche delle frasi libere e dei piccoli errori di ortografia.</p>
+          <div class="action-row">
+            <button class="button primary" id="reply-main" type="button">Prepara il messaggio</button>
+            <button class="button quiet" id="clear-answers" type="button">Cancella le risposte salvate</button>
+          </div>
+          <p class="status-message" id="save-status" aria-live="polite">Le risposte vengono salvate automaticamente.</p>
+        </section>
+
+        <section class="section" id="registro" data-step="8">
+          <p class="section-number">08 · Registro del corso</p>
+          <h2>Dove siamo</h2>
+          <dl class="register">
+            <div><dt>Lezione</dt><dd>1 · Ripasso A2</dd></div>
+            <div><dt>Concetto attivo</dt><dd>Passato prossimo con <em>avere</em> ed <em>essere</em></dd></div>
+            <div><dt>Padronanza</dt><dd id="mastery-status">In attesa dell'esame</dd></div>
+            <div><dt>Errori ricorrenti</dt><dd>Da determinare</dd></div>
+            <div><dt>Prossimo passo</dt><dd>Bloccato fino alla padronanza</dd></div>
+            <div><dt>Richiami dopo la padronanza</dt><dd>1, 3, 7, 14 e 30 giorni</dd></div>
+          </dl>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <dialog id="reply-dialog" aria-labelledby="reply-title">
+    <h2 id="reply-title">Il tuo messaggio</h2>
+    <p>Copia questo testo nella conversazione per ricevere correzioni e il voto finale.</p>
+    <label for="reply-text" class="visually-hidden">Risposte formattate</label>
+    <textarea id="reply-text" rows="18"></textarea>
+    <div class="dialog-actions">
+      <button class="button quiet" id="close-dialog" type="button">Chiudi</button>
+      <button class="button primary" id="copy-reply" type="button">Copia il messaggio</button>
+    </div>
+    <p class="status-message" id="copy-status" aria-live="polite"></p>
+  </dialog>
+
+  <div class="visually-hidden" id="announcer" aria-live="polite" aria-atomic="true"></div>
+
+  <footer>
+    <p>Italiano quotidiano. Una lezione alla volta, con ritorni programmati finché le parole restano.</p>
+  </footer>
+
+  <style>
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      margin: -1px !important;
+      padding: 0 !important;
+    }
+  </style>
+
+  <script>
+    (() => {
+      const storageKey = "italiano-quotidiano-lesson-1";
+      const form = document.querySelector("#lesson-form");
+      const controls = [...form.elements].filter((control) => control.name);
+      const englishToggle = document.querySelector("#english-toggle");
+      const englishBlocks = document.querySelectorAll("[data-english]");
+      const replyDialog = document.querySelector("#reply-dialog");
+      const replyText = document.querySelector("#reply-text");
+      const saveStatus = document.querySelector("#save-status");
+      const announcer = document.querySelector("#announcer");
+
+      function normalize(value) {
+        return value
+          .toLocaleLowerCase("it")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[.!?;:]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function saveAnswers() {
+        const data = {};
+        controls.forEach((control) => {
+          if (control.type === "radio") {
+            if (control.checked) data[control.name] = control.value;
+          } else {
+            data[control.name] = control.value;
+          }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+        saveStatus.textContent = "Salvato in questo browser.";
+      }
+
+      function loadAnswers() {
+        let data;
+        try {
+          data = JSON.parse(localStorage.getItem(storageKey) || "{}");
+        } catch {
+          data = {};
+        }
+
+        controls.forEach((control) => {
+          if (!(control.name in data)) return;
+          if (control.type === "radio") {
+            control.checked = control.value === data[control.name];
+          } else {
+            control.value = data[control.name];
+          }
+        });
+      }
+
+      let saveTimer;
+      form.addEventListener("input", () => {
+        window.clearTimeout(saveTimer);
+        saveStatus.textContent = "Salvataggio…";
+        saveTimer = window.setTimeout(saveAnswers, 220);
+      });
+
+      form.addEventListener("submit", (event) => event.preventDefault());
+      loadAnswers();
+
+      englishToggle.addEventListener("click", () => {
+        const showing = englishToggle.getAttribute("aria-pressed") === "true";
+        englishToggle.setAttribute("aria-pressed", String(!showing));
+        englishBlocks.forEach((block) => {
+          block.hidden = showing;
+        });
+        announcer.textContent = showing ? "English help hidden." : "English help shown.";
+      });
+
+      const answerChecks = {
+        1: (value) => ["e tornata", "maria e tornata"].includes(normalize(value)),
+        2: (value) => ["hanno preso", "paolo e luca hanno preso"].includes(normalize(value)),
+        3: (value) => normalize(value) === "giulia e arrivata alle dieci",
+        4: (value) => ["abbiamo scritto", "noi abbiamo scritto"].includes(normalize(value)),
+        5: (value) => ["si sono svegliate", "anna e sofia si sono svegliate"].includes(normalize(value)),
+        6: (value) => value === "b",
+        7: (value) => {
+          const answer = normalize(value);
+          return answer.startsWith("ieri ho visto") && (answer.includes("i miei amici") || answer.includes("le mie amiche"));
+        },
+        8: (value) => normalize(value) === "lucia e partita per milano",
+        9: (value) => ["in a", "in, a", "in italia a roma"].includes(normalize(value).replace(" e domani vado ", " "))
+      };
+
+      const essentialQuestions = new Set([1, 2, 5, 8]);
+
+      function valueForExam(number) {
+        if (number === 6) {
+          return form.querySelector('input[name="exam_6"]:checked')?.value || "";
+        }
+        return form.elements[`exam_${number}`]?.value || "";
+      }
+
+      function checkExam() {
+        let correct = 0;
+        let essentialPassed = true;
+        let firstEmpty = null;
+
+        for (let number = 1; number <= 9; number += 1) {
+          const item = document.querySelector(`[data-exam="${number}"]`);
+          const result = document.querySelector(`#exam-result-${number}`);
+          const value = valueForExam(number);
+
+          item.classList.remove("correct", "incorrect");
+          if (!value.trim()) {
+            result.textContent = "Rispondi prima di controllare.";
+            item.classList.add("incorrect");
+            firstEmpty ||= item.querySelector("input, textarea");
+            if (essentialQuestions.has(number)) essentialPassed = false;
+            continue;
+          }
+
+          const passed = answerChecks[number](value);
+          item.classList.add(passed ? "correct" : "incorrect");
+          result.textContent = passed ? "Corretta." : "Non ancora. Rileggi la regola e riprova.";
+          if (passed) correct += 1;
+          if (!passed && essentialQuestions.has(number)) essentialPassed = false;
+        }
+
+        const scoreOutput = document.querySelector("#score-output");
+        const examStatus = document.querySelector("#exam-status");
+        const masteryStatus = document.querySelector("#mastery-status");
+        scoreOutput.textContent = `${correct}/9 + frase`;
+
+        if (firstEmpty) {
+          examStatus.textContent = "Mancano alcune risposte. Ti porto alla prima.";
+          firstEmpty.focus();
+        } else if (correct === 9 && essentialPassed) {
+          examStatus.textContent = "Le prime nove sono corrette. Prepara il messaggio per il voto finale sulla frase libera.";
+          masteryStatus.textContent = "Pre-controllo superato, voto finale in attesa";
+        } else {
+          examStatus.textContent = `${correct} su 9 corrette. La padronanza non è ancora raggiunta.`;
+          masteryStatus.textContent = "Da riprovare";
+        }
+
+        saveAnswers();
+        examStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      document.querySelector("#check-exam").addEventListener("click", checkExam);
+
+      const sectionGroups = [
+        ["Ripasso", "review", 5],
+        ["Comprensione", "comp", 5],
+        ["Pratica", "practice", 6],
+        ["Esame", "exam", 10]
+      ];
+
+      function buildReply() {
+        const lines = ["Lezione 1 · Il treno sbagliato", ""];
+        sectionGroups.forEach(([title, prefix, count]) => {
+          lines.push(`${title}:`);
+          for (let number = 1; number <= count; number += 1) {
+            let value;
+            if (prefix === "exam" && number === 6) {
+              value = form.querySelector('input[name="exam_6"]:checked')?.value || "[senza risposta]";
+            } else {
+              value = form.elements[`${prefix}_${number}`]?.value.trim() || "[senza risposta]";
+            }
+            lines.push(`${number}. ${value}`);
+          }
+          lines.push("");
+        });
+        lines.push("Per favore, correggi le risposte e valuta la padronanza secondo il registro del corso.");
+        replyText.value = lines.join("\n");
+        replyDialog.showModal();
+        replyText.focus();
+        replyText.select();
+      }
+
+      ["reply-top", "reply-exam", "reply-main"].forEach((id) => {
+        document.querySelector(`#${id}`).addEventListener("click", buildReply);
+      });
+
+      document.querySelector("#close-dialog").addEventListener("click", () => replyDialog.close());
+      replyDialog.addEventListener("click", (event) => {
+        if (event.target === replyDialog) replyDialog.close();
+      });
+
+      document.querySelector("#copy-reply").addEventListener("click", async () => {
+        const copyStatus = document.querySelector("#copy-status");
+        try {
+          await navigator.clipboard.writeText(replyText.value);
+          copyStatus.textContent = "Copiato. Ora incollalo nella conversazione.";
+        } catch {
+          replyText.focus();
+          replyText.select();
+          copyStatus.textContent = "Selezionato. Usa il comando Copia del tuo dispositivo.";
+        }
+      });
+
+      document.querySelector("#clear-answers").addEventListener("click", () => {
+        const shouldClear = window.confirm("Vuoi cancellare tutte le risposte salvate per questa lezione?");
+        if (!shouldClear) return;
+        form.reset();
+        localStorage.removeItem(storageKey);
+        document.querySelectorAll(".question.correct, .question.incorrect").forEach((item) => {
+          item.classList.remove("correct", "incorrect");
+        });
+        document.querySelectorAll(".field-result").forEach((result) => {
+          result.textContent = result.id === "exam-result-10" ? "L'insegnante controllerà questa risposta." : "";
+        });
+        document.querySelector("#score-output").textContent = "—/10";
+        document.querySelector("#mastery-status").textContent = "In attesa dell'esame";
+        saveStatus.textContent = "Risposte cancellate.";
+      });
+
+      const sections = [...document.querySelectorAll(".section[data-step]")];
+      const navItems = [...document.querySelectorAll(".rail li")];
+      const progress = document.querySelector("#lesson-progress");
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.08 });
+
+      const progressObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const step = Number(visible.target.dataset.step);
+        progress.value = step;
+        progress.textContent = `${step} di 8`;
+        navItems.forEach((item, index) => item.classList.toggle("active", index + 1 === step));
+      }, { rootMargin: "-20% 0px -55%", threshold: [0, 0.2, 0.6] });
+
+      sections.forEach((section) => {
+        revealObserver.observe(section);
+        progressObserver.observe(section);
+      });
+    })();
+  </script>
+</body>
+</html>
