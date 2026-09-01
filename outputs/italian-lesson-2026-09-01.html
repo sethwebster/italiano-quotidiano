@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nona lezione interattiva di italiano: l'imperfetto per sfondo e abitudini.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b83a28'/%3E%3Cpath d='M9 32c7-20 39-25 46 0H9z' fill='%23fffaf0'/%3E%3Cpath d='M32 32v20c0 6 9 6 9 0' fill='none' stroke='%23fffaf0' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>Il temporale improvviso · Italiano quotidiano</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f2ebdd;
+      --paper-deep: #e5dac6;
+      --cream: #fffaf0;
+      --ink: #20231e;
+      --muted: #68675f;
+      --red: #b83a28;
+      --red-dark: #7f271d;
+      --olive: #58684d;
+      --olive-soft: #dfe5d6;
+      --blue: #6c8587;
+      --line: #c7bba7;
+      --white: #fffdf8;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Iowan Old Style, Baskerville, Georgia, "Times New Roman", serif;
+      --shadow: 0 26px 80px rgba(55, 42, 26, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255,255,255,.7), transparent 24rem),
+        linear-gradient(135deg, var(--paper), #ede3d1);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.62;
+      accent-color: var(--red);
+    }
+
+    button, input, textarea { font: inherit; }
+    button, input, textarea, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+    ::selection { background: var(--red); color: var(--white); }
+
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      margin: -1px !important;
+      padding: 0 !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset: .75rem auto auto .75rem;
+      z-index: 60;
+      border-radius: .35rem;
+      background: var(--ink);
+      color: var(--white);
+      padding: .7rem 1rem;
+      transform: translateY(-160%);
+      transition: transform 160ms ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .topbar {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 30;
+      display: flex;
+      min-height: 4.25rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-block-end: 1px solid color-mix(in srgb, var(--line), transparent 25%);
+      background: color-mix(in srgb, var(--paper), transparent 8%);
+      padding: .65rem clamp(1rem, 3vw, 2.5rem);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: .7rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .brand strong { font: 700 1.22rem/1 var(--serif); letter-spacing: -.02em; }
+    .brand span {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .top-actions, .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; }
+
+    .button {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: .88rem;
+      font-weight: 780;
+      padding: .55rem 1rem;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .button:hover { transform: translateY(-1px); background: var(--ink); color: var(--white); }
+    .button.primary { border-color: var(--red); background: var(--red); color: var(--white); }
+    .button.primary:hover { background: var(--red-dark); }
+    .button.quiet { border-color: transparent; color: var(--muted); }
+
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(12rem, 17rem) minmax(0, 1fr);
+      gap: clamp(1.5rem, 5vw, 5.5rem);
+      max-width: 92rem;
+      margin-inline: auto;
+      padding: clamp(1.25rem, 3vw, 2.75rem);
+    }
+
+    .rail {
+      position: sticky;
+      inset-block-start: 6.25rem;
+      align-self: start;
+      max-height: calc(100vh - 7.5rem);
+      overflow: auto;
+      padding-block-end: 1rem;
+    }
+    .rail-label {
+      margin: 0 0 .65rem;
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .rail progress {
+      display: block;
+      width: 100%;
+      height: .42rem;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: var(--paper-deep);
+      color: var(--red);
+    }
+    progress::-webkit-progress-bar { background: var(--paper-deep); }
+    progress::-webkit-progress-value { background: var(--red); transition: width 300ms ease; }
+    progress::-moz-progress-bar { background: var(--red); }
+    .rail nav { margin-block-start: 1.35rem; }
+    .rail ol { margin: 0; padding: 0; list-style: none; }
+    .rail li {
+      position: relative;
+      border-inline-start: 1px solid var(--line);
+      padding: .48rem 0 .48rem 1rem;
+    }
+    .rail li::before {
+      position: absolute;
+      inset: 1rem auto auto -.27rem;
+      width: .48rem;
+      height: .48rem;
+      border-radius: 50%;
+      background: var(--line);
+      content: "";
+      transition: transform 160ms ease, background 160ms ease;
+    }
+    .rail li.active::before { background: var(--red); transform: scale(1.4); }
+    .rail a { color: var(--muted); font-size: .83rem; font-weight: 680; text-decoration: none; }
+    .rail li.active a, .rail a:hover { color: var(--ink); }
+    .rail-note {
+      margin-block-start: 1.5rem;
+      border-block-start: 1px solid var(--line);
+      color: var(--muted);
+      font: 1rem/1.55 var(--serif);
+      padding-block-start: 1rem;
+    }
+
+    main { min-width: 0; }
+
+    .hero {
+      display: grid;
+      min-height: min(43rem, calc(100svh - 8rem));
+      grid-template-columns: minmax(0, 1.1fr) minmax(17rem, .9fr);
+      column-gap: clamp(1.5rem, 3vw, 3.5rem);
+      align-items: center;
+      border-block-end: 1px solid var(--line);
+      margin-block-end: clamp(4rem, 9vw, 8rem);
+      padding: clamp(1rem, 4vw, 3.5rem) 0;
+    }
+
+    .hero-copy { min-width: 0; max-width: 44rem; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin: 0 0 1.35rem;
+      color: var(--red-dark);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 2.2rem; height: 2px; background: var(--red); content: ""; }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    h1 {
+      max-width: 10ch;
+      margin: 0;
+      font-size: clamp(3.6rem, 8vw, 7.7rem);
+      letter-spacing: -.065em;
+    }
+    h1 em { color: var(--red); font-weight: 500; }
+    .hero-intro {
+      max-width: 31ch;
+      margin: 1.45rem 0 0;
+      color: var(--muted);
+      font: clamp(1.1rem, 2vw, 1.4rem)/1.55 var(--serif);
+    }
+    .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem 1.15rem;
+      margin-block-start: 1.9rem;
+      font-size: .82rem;
+      font-weight: 750;
+    }
+    .lesson-meta span { display: inline-flex; align-items: center; gap: .42rem; }
+    .lesson-meta span::before { width: .4rem; height: .4rem; border-radius: 50%; background: var(--olive); content: ""; }
+
+    .doorway {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 27rem);
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      border: .65rem solid var(--cream);
+      border-radius: 45% 45% 1.2rem 1.2rem;
+      background: var(--blue);
+      box-shadow: var(--shadow);
+      transform: rotate(1.2deg);
+    }
+    .doorway svg { display: block; width: 100%; height: 100%; }
+    .rain-fall { animation: rain-fall 2.8s linear infinite; }
+    .umbrella-bob { animation: umbrella-bob 3s ease-in-out infinite alternate; }
+    @keyframes rain-fall { from { translate: 0 -22px; } to { translate: 0 24px; } }
+    @keyframes umbrella-bob { from { translate: -5px 5px; } to { translate: 7px -7px; } }
+
+    .section {
+      max-width: 54rem;
+      margin-block: 0 clamp(5rem, 10vw, 9rem);
+      opacity: 0;
+      transform: translateY(1.1rem);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+    .section.visible { opacity: 1; transform: none; }
+    .section-number {
+      margin: 0 0 .7rem;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h2 { margin: 0 0 1.35rem; font-size: clamp(2.35rem, 5vw, 4.5rem); letter-spacing: -.045em; }
+    h3 { margin: 2.15rem 0 .8rem; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.025em; }
+    p, li { max-width: 75ch; }
+    .lede { max-width: 50rem; color: var(--muted); font: 1.2rem/1.6 var(--serif); }
+
+    .course-note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .85rem;
+      align-items: start;
+      margin-block: 1.3rem 2rem;
+      border-block: 1px solid var(--line);
+      padding-block: 1rem;
+    }
+    .course-note strong { color: var(--red-dark); font: 700 1.1rem/1.3 var(--serif); }
+    .course-note p { margin: 0; color: var(--muted); }
+
+    .story {
+      border-inline-start: .28rem solid var(--red);
+      font: clamp(1.08rem, 2vw, 1.27rem)/1.75 var(--serif);
+      padding-inline-start: clamp(1.1rem, 3vw, 2rem);
+    }
+    .story p:first-child::first-letter {
+      float: inline-start;
+      margin: .08em .13em 0 0;
+      color: var(--red);
+      font-size: 4.8em;
+      line-height: .72;
+    }
+    .dialogue { color: var(--red-dark); font-style: italic; }
+
+    .formula {
+      display: inline-block;
+      margin: .7rem 0 1.2rem;
+      border-block: 1px solid var(--line);
+      color: var(--red-dark);
+      font: clamp(1.3rem, 3vw, 2rem)/1.25 var(--serif);
+      padding: .8rem 0;
+    }
+    .contrast {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-block: 1.4rem;
+      border-block: 1px solid var(--line);
+      padding-block: 1.2rem;
+    }
+    .contrast h3 { margin-block-start: 0; }
+    .contrast ul { margin-block-end: 0; padding-inline-start: 1.2rem; }
+    .note, .english {
+      margin-block: 1.5rem;
+      border-radius: .55rem;
+      padding: 1rem 1.2rem;
+    }
+    .note { background: var(--olive-soft); }
+    .english { border: 1px dashed var(--olive); background: color-mix(in srgb, var(--olive-soft), transparent 32%); color: #35422e; }
+    .english::before {
+      display: block;
+      margin-block-end: .35rem;
+      font-size: .7rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      content: "English support";
+    }
+
+    form, fieldset { min-width: 0; }
+    fieldset { margin: 0; border: 0; padding: 0; }
+    legend { margin-block-end: .85rem; font: 1.3rem/1.3 var(--serif); }
+    .question-list { display: grid; gap: 1.3rem; margin: 0; padding: 0; list-style: none; }
+    .question {
+      display: grid;
+      gap: .5rem;
+      border-block-end: 1px solid var(--line);
+      padding-block-end: 1.3rem;
+    }
+    .question label, .question-label { display: block; max-width: 75ch; font-weight: 650; }
+    .essential {
+      display: inline-block;
+      margin-inline-start: .35rem;
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      color: var(--red-dark);
+      font-size: .64rem;
+      font-weight: 850;
+      letter-spacing: .06em;
+      padding: .08rem .38rem;
+      text-transform: uppercase;
+      vertical-align: .1em;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      min-height: 3.1rem;
+      border: 1px solid #8e8372;
+      border-radius: .45rem;
+      background: color-mix(in srgb, var(--cream), transparent 10%);
+      color: var(--ink);
+      font-size: 1rem;
+      padding: .75rem .85rem;
+      resize: vertical;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+    textarea { min-height: 5.5rem; }
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--red);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(184,58,40,.1);
+    }
+    .choice-group { display: grid; gap: .35rem; }
+    .choice { display: flex; min-height: 3rem; align-items: center; gap: .75rem; border-radius: .45rem; cursor: pointer; padding: .45rem .65rem; }
+    .choice:hover { background: rgba(255,255,255,.38); }
+    .choice input { width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+    .hint { color: var(--muted); font-size: .83rem; }
+    .field-result { min-height: 1.3rem; color: var(--muted); font-size: .84rem; font-weight: 720; }
+    .question.correct .field-result { color: #315226; }
+    .question.incorrect .field-result { color: var(--red-dark); }
+    .question.correct input, .question.correct textarea { border-color: var(--olive); }
+    .question.incorrect input, .question.incorrect textarea { border-color: var(--red); }
+
+    .exam-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: end;
+      margin-block-end: 2rem;
+      border-block: 1px solid var(--line);
+      padding-block: 1.2rem;
+    }
+    .score { color: var(--red); font: clamp(2.2rem, 5vw, 4rem)/1 var(--serif); white-space: nowrap; }
+    .action-row { margin-block-start: 1.45rem; }
+    .status-message { min-height: 1.5rem; margin-block-start: .9rem; color: var(--muted); font-weight: 680; }
+
+    .register { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); border-block: 1px solid var(--line); }
+    .register div { min-height: 7rem; border-block-end: 1px solid var(--line); padding: 1.1rem 1.2rem 1.1rem 0; }
+    .register div:nth-child(odd) { border-inline-end: 1px solid var(--line); }
+    .register div:nth-child(even) { padding-inline-start: 1.2rem; }
+    .register dt { margin-block-end: .3rem; color: var(--muted); font-size: .7rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .register dd { margin: 0; font: 1.08rem/1.45 var(--serif); }
+
+    dialog {
+      width: min(46rem, calc(100% - 2rem));
+      max-height: calc(100svh - 2rem);
+      overflow: auto;
+      border: 0;
+      border-radius: .85rem;
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 0 28px 100px rgba(25,18,10,.32);
+      padding: clamp(1.2rem, 4vw, 2.2rem);
+    }
+    dialog::backdrop { background: rgba(30,27,22,.58); backdrop-filter: blur(4px); }
+    dialog h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+    .dialog-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .7rem; margin-block-start: 1rem; }
+
+    footer {
+      max-width: 92rem;
+      margin-inline: auto;
+      border-block-start: 1px solid var(--line);
+      color: var(--muted);
+      font: 1rem/1.55 var(--serif);
+      padding: 2rem clamp(1.25rem, 3vw, 2.75rem) 3.5rem;
+    }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 900px) {
+      .shell { display: block; }
+      .rail { position: static; max-height: none; margin-block-end: 2rem; }
+      .rail nav, .rail-note { display: none; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 2.5rem; }
+      .doorway { justify-self: center; width: min(78vw, 24rem); }
+    }
+    @media (max-width: 620px) {
+      .brand span, .wide-label { display: none; }
+      .shell { padding-inline: 1rem; }
+      h1 { font-size: clamp(3.35rem, 17vw, 5.5rem); }
+      .lesson-meta { display: grid; grid-template-columns: repeat(2, max-content); gap: .4rem 1rem; }
+      .contrast, .exam-intro, .register { grid-template-columns: 1fr; }
+      .register div:nth-child(odd) { border-inline-end: 0; }
+      .register div:nth-child(even) { padding-inline-start: 0; }
+      .score { font-size: 2.8rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .section { opacity: 1; transform: none; }
+    }
+    @media print {
+      .topbar, .rail, .button, dialog { display: none !important; }
+      body { background: white; }
+      .shell { display: block; max-width: 50rem; padding: 0; }
+      .hero { min-height: auto; }
+      .doorway { width: 15rem; }
+      .section { break-inside: avoid; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Vai alla lezione</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Italiano quotidiano, torna all'inizio">
+      <strong>Italiano quotidiano</strong><span>A2 → B1</span>
+    </a>
+    <div class="top-actions">
+      <button class="button" id="english-toggle" type="button" aria-pressed="false">EN <span class="wide-label">English help</span></button>
+      <button class="button primary" id="reply-top" type="button"><span class="wide-label">Prepara la </span>risposta</button>
+    </div>
+  </header>
+
+  <div class="shell" id="top">
+    <aside class="rail" aria-label="Avanzamento della lezione">
+      <p class="rail-label">Avanzamento</p>
+      <progress id="lesson-progress" max="8" value="1">1 di 8</progress>
+      <nav aria-label="Sezioni della lezione">
+        <ol role="list">
+          <li class="active"><a href="#ripasso">Ripasso</a></li>
+          <li><a href="#storia">Storia</a></li>
+          <li><a href="#comprensione">Comprensione</a></li>
+          <li><a href="#regola">Come funziona</a></li>
+          <li><a href="#pratica">Pratica</a></li>
+          <li><a href="#esame">Esame</a></li>
+          <li><a href="#risposta">Risposta</a></li>
+          <li><a href="#registro">Registro</a></li>
+        </ol>
+      </nav>
+      <p class="rail-note">Restiamo sullo stesso concetto finché l'esame non dimostra padronanza.</p>
+    </aside>
+
+    <main id="content" tabindex="-1">
+      <section class="hero" aria-labelledby="lesson-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Lezione 9 · 1 settembre 2026</p>
+          <h1 id="lesson-title">Il temporale <em>improvviso</em></h1>
+          <p class="hero-intro">Lo sfondo era tranquillo. Poi è successo qualcosa.</p>
+          <div class="lesson-meta" aria-label="Dettagli della lezione"><span>Primo passo B1</span><span>25 minuti</span><span>Padronanza 90%</span></div>
+          <div class="english" data-english hidden>Today introduces the imperfetto for background, descriptions, and ongoing past actions. The passato prossimo remains the tense for completed events that move the story forward.</div>
+        </div>
+
+        <figure class="doorway" aria-label="Un ombrello rosso in un cortile durante un temporale">
+          <svg viewBox="0 0 600 750" role="img" aria-labelledby="storm-title storm-desc">
+            <title id="storm-title">Il temporale improvviso</title><desc id="storm-desc">Un cortile blu sotto la pioggia con un ombrello rosso aperto.</desc>
+            <rect width="600" height="750" fill="#70888d"/><rect y="540" width="600" height="210" fill="#6b765e"/>
+            <path d="M0 190h135V70h125v120h110V105h165v85h65v350H0z" fill="#36545c"/>
+            <g fill="#dbe4df" opacity=".6"><rect x="38" y="238" width="54" height="75"/><rect x="168" y="232" width="54" height="75"/><rect x="405" y="228" width="54" height="75"/><rect x="486" y="228" width="54" height="75"/></g>
+            <g class="rain-fall" stroke="#dbe4df" stroke-width="5" stroke-linecap="round" opacity=".75"><path d="M54 30l-16 42M123 9l-16 42M210 51l-16 42M289 20l-16 42M387 42l-16 42M472 12l-16 42M555 55l-16 42M81 330l-16 42M307 346l-16 42M521 325l-16 42"/></g>
+            <g class="umbrella-bob" transform="translate(145 415)"><path d="M0 104c36-137 255-137 291 0H0z" fill="#b83a28"/><path d="M145 104v168c0 41 59 41 59 0" fill="none" stroke="#20231e" stroke-width="12" stroke-linecap="round"/><path d="M0 104c52-55 95-55 145 0 50-55 94-55 146 0" fill="none" stroke="#7f271d" stroke-width="7"/></g>
+          </svg>
+        </figure>
+      </section>
+
+      <form id="lesson-form" action="#" method="post">
+        <section class="section" id="ripasso" data-step="1"><p class="section-number">01 · Richiamo attivo</p><h2>Ripasso a memoria</h2>
+          <p class="lede">Prima del nuovo tempo verbale, recupera cinque forme del passato prossimo.</p>
+          <fieldset><legend class="visually-hidden">Domande di richiamo</legend><ol class="question-list">
+            <li class="question"><label for="review-1">1. Luca ___ arrivato alla biblioteca.</label><input id="review-1" name="review_1" type="text" autocomplete="off"></li>
+            <li class="question"><label for="review-2">2. Lui ___ lasciato la bici fuori.</label><input id="review-2" name="review_2" type="text" autocomplete="off"></li>
+            <li class="question"><label for="review-3">3. Giulia e Marta sono uscit__.</label><input id="review-3" name="review_3" type="text" autocomplete="off"></li>
+            <li class="question"><label for="review-4">4. Noi ___ trovato la bicicletta.</label><input id="review-4" name="review_4" type="text" autocomplete="off"></li>
+            <li class="question"><label for="review-5">5. Le ragazze si sono preoccupat__.</label><input id="review-5" name="review_5" type="text" autocomplete="off"></li>
+          </ol></fieldset>
+        </section>
+
+        <section class="section" id="storia" data-step="2"><p class="section-number">02 · Lettura</p><h2>Il temporale improvviso</h2>
+          <article class="story">
+            <p>Era un pomeriggio caldo. Nel cortile i bambini giocavano a pallone, due signore parlavano vicino alla porta e il gatto dormiva sotto una sedia.</p>
+            <p>Il cielo diventava sempre più scuro, ma nessuno guardava in alto. Luca correva dietro al pallone quando ha sentito un tuono fortissimo.</p>
+            <p class="dialogue">"Sta per piovere!" ha gridato.</p>
+            <p>Improvvisamente ha iniziato a piovere. I bambini sono corsi dentro il palazzo, le signore hanno chiuso le finestre e il gatto si è nascosto sotto le scale.</p>
+            <p>Mentre tutti cercavano un posto asciutto, Sara ha aperto un grande ombrello rosso. Dopo dieci minuti il temporale è finito e il sole è tornato.</p>
+          </article>
+          <div class="english" data-english hidden>The imperfetto creates the scene: it was hot, children were playing, people were talking. The passato prossimo marks completed events: thunder sounded, rain started, and everyone ran inside.</div>
+        </section>
+
+        <section class="section" id="comprensione" data-step="3"><p class="section-number">03 · Comprensione</p><h2>Prima e poi</h2>
+          <fieldset><legend class="visually-hidden">Domande di comprensione</legend><ol class="question-list">
+            <li class="question"><label for="comp-1">1. Che tempo faceva all'inizio?</label><input id="comp-1" name="comp_1" type="text" autocomplete="off"></li>
+            <li class="question"><label for="comp-2">2. Che cosa facevano i bambini?</label><input id="comp-2" name="comp_2" type="text" autocomplete="off"></li>
+            <li class="question"><label for="comp-3">3. Che cosa ha sentito Luca?</label><input id="comp-3" name="comp_3" type="text" autocomplete="off"></li>
+            <li class="question"><label for="comp-4">4. Dove si è nascosto il gatto?</label><input id="comp-4" name="comp_4" type="text" autocomplete="off"></li>
+          </ol></fieldset>
+        </section>
+
+        <section class="section" id="regola" data-step="4"><p class="section-number">04 · Grammatica</p><h2>Lo sfondo e l'evento</h2>
+          <p class="formula">giocavano → ha iniziato a piovere</p>
+          <div class="contrast"><div><h3>Imperfetto</h3><ul><li>sfondo: faceva caldo</li><li>descrizione: era tranquillo</li><li>azione in corso: giocavano</li><li>abitudine: andavo ogni giorno</li></ul></div><div><h3>Passato prossimo</h3><ul><li>evento concluso: ha iniziato</li><li>azione puntuale: ha sentito</li><li>sequenza: sono corsi dentro</li><li>cambiamento: il sole è tornato</li></ul></div></div>
+          <h3>Le forme regolari</h3><p><em>-are</em>: parlavo · <em>-ere</em>: prendevo · <em>-ire</em>: dormivo</p>
+          <p class="note"><em>Essere</em> è irregolare: ero, eri, era, eravamo, eravate, erano.</p>
+          <div class="english" data-english hidden>Use the imperfetto for background, descriptions, habits, and actions already in progress. Use the passato prossimo for completed events that advance the story.</div>
+        </section>
+
+        <section class="section" id="pratica" data-step="5"><p class="section-number">05 · Pratica guidata</p><h2>Costruisci lo sfondo</h2>
+          <fieldset><legend class="visually-hidden">Esercizi di pratica</legend><ol class="question-list">
+            <li class="question"><label for="practice-1">1. Io parl___ con Sara. <em>parlare, imperfetto</em></label><input id="practice-1" name="practice_1" type="text" autocomplete="off"></li>
+            <li class="question"><label for="practice-2">2. I bambini gioc___ in cortile. <em>giocare, imperfetto</em></label><input id="practice-2" name="practice_2" type="text" autocomplete="off"></li>
+            <li class="question"><label for="practice-3">3. Noi prend___ il sole. <em>prendere, imperfetto</em></label><input id="practice-3" name="practice_3" type="text" autocomplete="off"></li>
+            <li class="question"><label for="practice-4">4. Il gatto dorm___ sotto la sedia. <em>dormire, imperfetto</em></label><input id="practice-4" name="practice_4" type="text" autocomplete="off"></li>
+            <li class="question"><label for="practice-5">5. Loro ___ nel cortile. <em>essere, imperfetto</em></label><input id="practice-5" name="practice_5" type="text" autocomplete="off"></li>
+          </ol></fieldset>
+        </section>
+
+        <section class="section" id="esame" data-step="6"><p class="section-number">06 · Esame di padronanza</p><h2>Calma o evento?</h2>
+          <div class="exam-intro"><div><p><strong>Per avanzare:</strong> almeno 9 punti su 10 e tutte le domande essenziali corrette.</p><p class="hint">Scegli il tempo che corrisponde al ruolo dell'azione nella storia.</p></div><output class="score" id="score-output" aria-live="polite">—/10</output></div>
+          <fieldset><legend class="visually-hidden">Domande dell'esame</legend><ol class="question-list">
+            <li class="question" data-exam="1"><label for="exam-1">1. Ieri ___ caldo. <em>fare, imperfetto</em> <span class="essential">Essenziale</span></label><input id="exam-1" name="exam_1" type="text" autocomplete="off" required aria-describedby="result-1"><span class="field-result" id="result-1"></span></li>
+            <li class="question" data-exam="2"><label for="exam-2">2. I bambini ___ in cortile. <em>giocare, imperfetto</em> <span class="essential">Essenziale</span></label><input id="exam-2" name="exam_2" type="text" autocomplete="off" required aria-describedby="result-2"><span class="field-result" id="result-2"></span></li>
+            <li class="question" data-exam="3"><label for="exam-3">3. Improvvisamente ___ a piovere. <em>iniziare, passato prossimo</em> <span class="essential">Essenziale</span></label><input id="exam-3" name="exam_3" type="text" autocomplete="off" required aria-describedby="result-3"><span class="field-result" id="result-3"></span></li>
+            <li class="question" data-exam="4"><label for="exam-4">4. Mentre noi ___, il cielo è diventato scuro. <em>parlare</em></label><input id="exam-4" name="exam_4" type="text" autocomplete="off" required aria-describedby="result-4"><span class="field-result" id="result-4"></span></li>
+            <li class="question" data-exam="5"><label for="exam-5">5. Correggi: <em>Quando ero piccolo, ho giocato fuori ogni giorno.</em> <span class="essential">Essenziale</span></label><input id="exam-5" name="exam_5" type="text" autocomplete="off" required aria-describedby="result-5"><span class="field-result" id="result-5"></span></li>
+            <li class="question" data-exam="6"><p class="question-label" id="exam-6-label">6. Scegli la frase corretta.</p><div class="choice-group" role="radiogroup" aria-labelledby="exam-6-label" aria-describedby="result-6"><label class="choice" for="exam-6-a"><input id="exam-6-a" name="exam_6" type="radio" value="a" required> a. Mentre ho studiato, suonava il telefono.</label><label class="choice" for="exam-6-b"><input id="exam-6-b" name="exam_6" type="radio" value="b"> b. Mentre studiavo, è suonato il telefono.</label><label class="choice" for="exam-6-c"><input id="exam-6-c" name="exam_6" type="radio" value="c"> c. Mentre studiavo, suonavo il telefono.</label></div><span class="field-result" id="result-6"></span></li>
+            <li class="question" data-exam="7"><label for="exam-7">7. Traduci: "It was raining and we were at home."</label><input id="exam-7" name="exam_7" type="text" autocomplete="off" required aria-describedby="result-7"><span class="field-result" id="result-7"></span></li>
+            <li class="question" data-exam="8"><label for="exam-8">8. Sara ___ la finestra. <em>chiudere, evento concluso</em></label><input id="exam-8" name="exam_8" type="text" autocomplete="off" required aria-describedby="result-8"><span class="field-result" id="result-8"></span></li>
+            <li class="question" data-exam="9"><label for="exam-9">9. Completa: Giocavano ___ cortile e sono corsi ___ casa.</label><input id="exam-9" name="exam_9" type="text" autocomplete="off" required aria-describedby="exam-9-hint result-9"><span class="hint" id="exam-9-hint">Scrivi le due preposizioni separate da una virgola.</span><span class="field-result" id="result-9"></span></li>
+            <li class="question" data-exam="10"><label for="exam-10">10. Scrivi una frase con uno sfondo all'imperfetto e un evento al passato prossimo.</label><textarea id="exam-10" name="exam_10" required aria-describedby="result-10"></textarea><span class="field-result" id="result-10">La versione pubblica trasforma questa voce in una domanda oggettiva.</span></li>
+          </ol></fieldset>
+          <div class="action-row"><button class="button primary" id="check-exam" type="button">Controlla le prime 9</button><button class="button" id="reply-exam" type="button">Prepara la risposta</button></div><p class="status-message" id="exam-status" aria-live="polite"></p>
+        </section>
+
+        <section class="section" id="risposta" data-step="7"><p class="section-number">07 · Progresso</p><h2>Il voto resta nel browser</h2><p class="lede">Supera l'esame per sbloccare la lezione successiva nell'indice pubblico.</p><div class="action-row"><button class="button primary" id="reply-main" type="button">Torna all'indice</button><button class="button quiet" id="clear-answers" type="button">Cancella le risposte salvate</button></div><p class="status-message" id="save-status" aria-live="polite">Le risposte vengono salvate automaticamente in questo browser.</p></section>
+
+        <section class="section" id="registro" data-step="8"><p class="section-number">08 · Registro del corso</p><h2>Dove siamo</h2><dl class="register"><div><dt>Lezione</dt><dd>9 · Primo passo B1</dd></div><div><dt>Concetto attivo</dt><dd>Imperfetto per sfondo, descrizioni e abitudini</dd></div><div><dt>Ripasso integrato</dt><dd>Passato prossimo e accordo con <em>essere</em></dd></div><div><dt>Richiami programmati</dt><dd>Passato prossimo a 7 giorni; imperfetto a 1, 3, 7, 14 e 30 giorni</dd></div><div><dt>Padronanza</dt><dd id="mastery-status">In attesa dell'esame</dd></div><div><dt>Prossimo passo</dt><dd>Contrasto imperfetto e passato prossimo</dd></div></dl></section>
+      </form>
+    </main>
+  </div>
+
+  <dialog id="reply-dialog" aria-labelledby="reply-title">
+    <h2 id="reply-title">Il tuo messaggio</h2>
+    <p>Copia il testo nella conversazione per ricevere correzioni e il voto finale.</p>
+    <label class="visually-hidden" for="reply-text">Risposte formattate</label>
+    <textarea id="reply-text" rows="18"></textarea>
+    <div class="dialog-actions">
+      <button class="button quiet" id="close-dialog" type="button">Chiudi</button>
+      <button class="button primary" id="copy-reply" type="button">Copia il messaggio</button>
+    </div>
+    <p class="status-message" id="copy-status" aria-live="polite"></p>
+  </dialog>
+
+  <div class="visually-hidden" id="announcer" aria-live="polite" aria-atomic="true"></div>
+  <footer><p>Italiano quotidiano. L'imperfetto prepara la scena, il passato prossimo fa avanzare la storia.</p></footer>
+
+  <script>
+    (() => {
+      const storageKey = "italiano-quotidiano-2026-09-01";
+      const form = document.querySelector("#lesson-form");
+      const controls = [...form.elements].filter((control) => control.name);
+      const englishToggle = document.querySelector("#english-toggle");
+      const englishBlocks = document.querySelectorAll("[data-english]");
+      const replyDialog = document.querySelector("#reply-dialog");
+      const replyText = document.querySelector("#reply-text");
+      const saveStatus = document.querySelector("#save-status");
+      const announcer = document.querySelector("#announcer");
+
+      const normalize = (value) => value
+        .toLocaleLowerCase("it")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[.!?;:]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      function saveAnswers() {
+        const data = {};
+        controls.forEach((control) => {
+          if (control.type === "radio") {
+            if (control.checked) data[control.name] = control.value;
+          } else {
+            data[control.name] = control.value;
+          }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+        saveStatus.textContent = "Salvato in questo browser.";
+      }
+
+      function loadAnswers() {
+        let data = {};
+        try { data = JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch { data = {}; }
+        controls.forEach((control) => {
+          if (!(control.name in data)) return;
+          if (control.type === "radio") control.checked = control.value === data[control.name];
+          else control.value = data[control.name];
+        });
+      }
+
+      let saveTimer;
+      form.addEventListener("input", () => {
+        window.clearTimeout(saveTimer);
+        saveStatus.textContent = "Salvataggio…";
+        saveTimer = window.setTimeout(saveAnswers, 220);
+      });
+      form.addEventListener("submit", (event) => event.preventDefault());
+      loadAnswers();
+
+      englishToggle.addEventListener("click", () => {
+        const showing = englishToggle.getAttribute("aria-pressed") === "true";
+        englishToggle.setAttribute("aria-pressed", String(!showing));
+        englishBlocks.forEach((block) => { block.hidden = showing; });
+        announcer.textContent = showing ? "English help hidden." : "English help shown.";
+      });
+
+      const checks = {
+        1: (v) => ["faceva", "ieri faceva"].includes(normalize(v)),
+        2: (v) => ["giocavano", "i bambini giocavano"].includes(normalize(v)),
+        3: (v) => ["ha iniziato", "improvvisamente ha iniziato"].includes(normalize(v)),
+        4: (v) => ["parlavamo", "noi parlavamo"].includes(normalize(v)),
+        5: (v) => ["quando ero piccolo giocavo fuori ogni giorno", "quando ero piccolo, giocavo fuori ogni giorno"].includes(normalize(v)),
+        6: (v) => v === "b",
+        7: (v) => ["pioveva ed eravamo a casa", "pioveva e eravamo a casa", "pioveva e noi eravamo a casa"].includes(normalize(v)),
+        8: (v) => ["ha chiuso", "sara ha chiuso"].includes(normalize(v)),
+        9: (v) => ["in a", "in, a", "in cortile a casa"].includes(normalize(v))
+      };
+      const essential = new Set([1, 2, 3, 5]);
+
+      function examValue(number) {
+        if (number === 6) return form.querySelector('input[name="exam_6"]:checked')?.value || "";
+        return form.elements[`exam_${number}`]?.value || "";
+      }
+
+      function checkExam() {
+        let correct = 0;
+        let essentialsPassed = true;
+        let firstEmpty = null;
+
+        for (let number = 1; number <= 9; number += 1) {
+          const item = document.querySelector(`[data-exam="${number}"]`);
+          const result = document.querySelector(`#result-${number}`);
+          const value = examValue(number);
+          item.classList.remove("correct", "incorrect");
+
+          if (!value.trim()) {
+            item.classList.add("incorrect");
+            result.textContent = "Rispondi prima di controllare.";
+            firstEmpty ||= item.querySelector("input, textarea");
+            if (essential.has(number)) essentialsPassed = false;
+            continue;
+          }
+
+          const passed = checks[number](value);
+          item.classList.add(passed ? "correct" : "incorrect");
+          result.textContent = passed ? "Corretta." : "Non ancora. Fai i due controlli e riprova.";
+          if (passed) correct += 1;
+          if (!passed && essential.has(number)) essentialsPassed = false;
+        }
+
+        const score = document.querySelector("#score-output");
+        const status = document.querySelector("#exam-status");
+        const mastery = document.querySelector("#mastery-status");
+        score.textContent = `${correct}/9 + storia`;
+
+        if (firstEmpty) {
+          status.textContent = "Mancano alcune risposte. Ti porto alla prima.";
+          firstEmpty.focus();
+        } else if (correct === 9 && essentialsPassed) {
+          status.textContent = "Le prime nove sono corrette. Prepara il messaggio per il voto finale.";
+          mastery.textContent = "Pre-controllo superato, voto finale in attesa";
+        } else {
+          status.textContent = `${correct} su 9 corrette. La padronanza non è ancora raggiunta.`;
+          mastery.textContent = "Da riprovare";
+        }
+        saveAnswers();
+        status.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      document.querySelector("#check-exam").addEventListener("click", checkExam);
+
+      const groups = [
+        ["Ripasso", "review", 5],
+        ["Comprensione", "comp", 4],
+        ["Pratica", "practice", 5],
+        ["Esame", "exam", 10]
+      ];
+
+      function buildReply() {
+        const lines = ["Lezione 9 · Il temporale improvviso", ""];
+        groups.forEach(([title, prefix, count]) => {
+          lines.push(`${title}:`);
+          for (let number = 1; number <= count; number += 1) {
+            let value;
+            if (prefix === "exam" && number === 6) value = form.querySelector('input[name="exam_6"]:checked')?.value || "[senza risposta]";
+            else value = form.elements[`${prefix}_${number}`]?.value.trim() || "[senza risposta]";
+            lines.push(`${number}. ${value}`);
+          }
+          lines.push("");
+        });
+        lines.push("Correggi le risposte e valuta la padronanza. Non avanzare se non raggiungo il 90% o sbaglio una domanda essenziale.");
+        replyText.value = lines.join("\n");
+        replyDialog.showModal();
+        replyText.focus();
+        replyText.select();
+      }
+
+      ["reply-top", "reply-exam", "reply-main"].forEach((id) => document.querySelector(`#${id}`).addEventListener("click", buildReply));
+      document.querySelector("#close-dialog").addEventListener("click", () => replyDialog.close());
+      replyDialog.addEventListener("click", (event) => { if (event.target === replyDialog) replyDialog.close(); });
+      document.querySelector("#copy-reply").addEventListener("click", async () => {
+        const status = document.querySelector("#copy-status");
+        try {
+          await navigator.clipboard.writeText(replyText.value);
+          status.textContent = "Copiato. Ora incollalo nella conversazione.";
+        } catch {
+          replyText.focus();
+          replyText.select();
+          status.textContent = "Selezionato. Usa il comando Copia del tuo dispositivo.";
+        }
+      });
+
+      document.querySelector("#clear-answers").addEventListener("click", () => {
+        if (!window.confirm("Vuoi cancellare tutte le risposte salvate per questa lezione?")) return;
+        form.reset();
+        localStorage.removeItem(storageKey);
+        document.querySelectorAll(".question.correct, .question.incorrect").forEach((item) => item.classList.remove("correct", "incorrect"));
+        document.querySelectorAll(".field-result").forEach((result) => { result.textContent = result.id === "result-10" ? "L'insegnante controllerà questa risposta." : ""; });
+        document.querySelector("#score-output").textContent = "—/10";
+        document.querySelector("#mastery-status").textContent = "In attesa dell'esame";
+        saveStatus.textContent = "Risposte cancellate.";
+      });
+
+      const sections = [...document.querySelectorAll(".section[data-step]")];
+      const navItems = [...document.querySelectorAll(".rail li")];
+      const progress = document.querySelector("#lesson-progress");
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+      }, { threshold: .08 });
+      const progressObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const step = Number(visible.target.dataset.step);
+        progress.value = step;
+        progress.textContent = `${step} di 8`;
+        navItems.forEach((item, index) => item.classList.toggle("active", index + 1 === step));
+      }, { rootMargin: "-20% 0px -55%", threshold: [0, .2, .6] });
+      sections.forEach((section) => { revealObserver.observe(section); progressObserver.observe(section); });
+    })();
+  </script>
+</body>
+</html>
