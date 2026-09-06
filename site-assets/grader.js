@@ -12,7 +12,8 @@
     "2026-08-30": ["Quale frase è corretta?", ["Emma e Paolo hanno arrivato insieme.", "Emma e Paolo sono arrivate insieme.", "Emma e Paolo sono arrivati insieme."], "c"],
     "2026-08-31": ["Quale frase è corretta?", ["Sara ha uscita dalla biblioteca.", "Sara è uscita dalla biblioteca.", "Sara è uscito dalla biblioteca."], "b"],
     "2026-09-01": ["Quale frase crea correttamente lo sfondo?", ["Ha fatto caldo e i bambini hanno giocato.", "Faceva caldo e i bambini giocavano.", "Faceva caldo e i bambini hanno giocavano."], "b"],
-    "2026-09-05": ["Quale frase presenta correttamente un'azione interrotta?", ["Mentre abbiamo cenato, la luce andava via.", "Mentre cenavamo, la luce è andata via.", "Mentre cenavamo, la luce andava via improvvisamente."], "b"]
+    "2026-09-05": ["Quale frase presenta correttamente un'azione interrotta?", ["Mentre abbiamo cenato, la luce andava via.", "Mentre cenavamo, la luce è andata via.", "Mentre cenavamo, la luce andava via improvvisamente."], "b"],
+    "2026-09-06": ["Quale frase descrive due azioni contemporanee?", ["Mentre Anna sceglieva, Enzo preparava il sacchetto.", "Mentre Anna ha scelto, Enzo preparava il sacchetto.", "Mentre Anna sceglieva, Enzo ha preparato il sacchetto."], "a"]
   };
 
   const fallback = [
